@@ -1,0 +1,19 @@
+version: "3"
+
+services: 
+
+  openhab:
+    image: openhab/openhab:3.0.1
+    restart: unless-stopped
+    network_mode: host
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
+      - openhab_data_conf:/openhab/conf
+      - openhab_data_userdata:/openhab/userdata
+      - openhab_data_addons:/openhab/addons
+
+volumes:
+  openhab_data_conf:
+  openhab_data_userdata:
+  openhab_data_addons:
